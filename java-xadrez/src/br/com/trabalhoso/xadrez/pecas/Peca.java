@@ -1,7 +1,8 @@
 package br.com.trabalhoso.xadrez.pecas;
 import br.com.trabalhoso.xadrez.partida.Posicao;
+import br.com.trabalhoso.xadrez.partida.Tabuleiro;
 
-    import java.util.List;
+import java.util.List;
     import java.util.ArrayList;
 
     //Toda peca tem pelo menos duas características
@@ -18,6 +19,6 @@ import br.com.trabalhoso.xadrez.partida.Posicao;
             return this.cor;
         }
 
-        public abstract List<Posicao> calcularMovimentosPossiveis();
+        public abstract List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro);
 
     }
