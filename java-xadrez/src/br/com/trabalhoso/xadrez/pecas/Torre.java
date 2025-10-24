@@ -1,6 +1,6 @@
 package br.com.trabalhoso.xadrez.pecas;
+import br.com.trabalhoso.xadrez.partida.Posicao;
 import br.com.trabalhoso.xadrez.partida.Tabuleiro;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,16 +12,13 @@ public class Torre extends Peca {
     }
 
     @Override
-    public List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro) {
+    public List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro, Posicao minhaPosicao) {
         List<Posicao> movimentos = new ArrayList<>();
 
-        // Primeiro, precisamos saber onde a torre está no tabuleiro.
-        // Vamos assumir que existe um método no tabuleiro para nos dizer isso.
-        Posicao minhaPosicao = tabuleiro.getPosicaoDaPeca(this);
+
         int linha = minhaPosicao.getLinha();
         int coluna = minhaPosicao.getColuna();
 
-        // --- LÓGICA DE MOVIMENTO ---
 
         // 1. Olhar para CIMA
         // O loop começa na linha logo acima da torre e vai diminuindo até a borda (linha 0)
