@@ -1,5 +1,6 @@
 package br.com.trabalhoso.xadrez.pecas;
 import br.com.trabalhoso.xadrez.partida.Tabuleiro;
+import br.com.trabalhoso.xadrez.partida.Posicao;
 
 import java.util.ArrayList;
 import java.util.List;
