@@ -48,7 +48,7 @@ public class Cliente {
     }
 
     /**
-     * Este método roda em uma Thread separada.
+     * Este metodo roda em uma Thread separada.
      * Fica em um loop infinito lendo as mensagens do oponente.
      */
     private void ouvirServidor() {
