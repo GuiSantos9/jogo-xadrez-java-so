@@ -18,6 +18,6 @@ import java.util.ArrayList;
             return this.cor;
         }
 
-        public abstract List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro, Posicao minhaPosicao);
+        public abstract List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro);
 
     }

@@ -1,11 +1,7 @@
 package br.com.trabalhoso.xadrez.pecas;
+
 import br.com.trabalhoso.xadrez.partida.Posicao;
 import br.com.trabalhoso.xadrez.partida.Tabuleiro;
-<<<<<<< HEAD
-import br.com.trabalhoso.xadrez.partida.Posicao;
-
-=======
->>>>>>> 62bd5b65928e9f1257116bd0ceeff7c050b7cc10
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +13,24 @@ public class Torre extends Peca {
     }
 
     @Override
-    public List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro, Posicao minhaPosicao) {
+    // --- CORREÇÃO AQUI: A assinatura agora bate com a classe Peca ---
+    public List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro) {
         List<Posicao> movimentos = new ArrayList<>();
 
+        // --- LINHAS ADICIONADAS ---
+        // 1. Pergunta ao tabuleiro onde esta peça (this) está.
+        Posicao minhaPosicao = tabuleiro.getPosicaoDaPeca(this);
+
+        // 2. Verificação de segurança (impede erro se a peça não for encontrada)
+        if (minhaPosicao == null) {
+            return movimentos;
+        }
+        // --- FIM DA CORREÇÃO ---
 
         int linha = minhaPosicao.getLinha();
         int coluna = minhaPosicao.getColuna();
 
-
         // 1. Olhar para CIMA
-        // O loop começa na linha logo acima da torre e vai diminuindo até a borda (linha 0)
         for (int i = linha - 1; i >= 0; i--) {
             Posicao proximaPosicao = new Posicao(i, coluna);
             Peca pecaNoCaminho = tabuleiro.getPeca(proximaPosicao);
@@ -42,7 +46,6 @@ public class Torre extends Peca {
         }
 
         // 2. Olhar para BAIXO
-        // O loop começa na linha logo abaixo da torre e vai aumentando até a borda (linha 7)
         for (int i = linha + 1; i <= 7; i++) {
             Posicao proximaPosicao = new Posicao(i, coluna);
             Peca pecaNoCaminho = tabuleiro.getPeca(proximaPosicao);
@@ -58,7 +61,6 @@ public class Torre extends Peca {
         }
 
         // 3. Olhar para a ESQUERDA
-        // O loop começa na coluna à esquerda e vai diminuindo até a borda (coluna 0)
         for (int j = coluna - 1; j >= 0; j--) {
             Posicao proximaPosicao = new Posicao(linha, j);
             Peca pecaNoCaminho = tabuleiro.getPeca(proximaPosicao);
@@ -74,7 +76,6 @@ public class Torre extends Peca {
         }
 
         // 4. Olhar para a DIREITA
-        // O loop começa na coluna à direita e vai aumentando até a borda (coluna 7)
         for (int j = coluna + 1; j <= 7; j++) {
             Posicao proximaPosicao = new Posicao(linha, j);
             Peca pecaNoCaminho = tabuleiro.getPeca(proximaPosicao);

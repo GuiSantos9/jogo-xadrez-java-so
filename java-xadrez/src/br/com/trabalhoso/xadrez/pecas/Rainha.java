@@ -110,7 +110,7 @@ public class Rainha extends Peca {
 
         if (pecaNoCaminho == null) { // A casa está vazia?
             movimentos.add(posicao);
-            return true; // Continua na mesma direção
+            return true;
         } else if (pecaNoCaminho.getCor() != this.getCor()) { // É uma peça inimiga?
             movimentos.add(posicao); // Adiciona como captura
             return false; // Para, pois a peça bloqueia

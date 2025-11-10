@@ -1,16 +1,9 @@
 package br.com.trabalhoso.xadrez.pecas;
+
 import br.com.trabalhoso.xadrez.partida.Posicao;
 import br.com.trabalhoso.xadrez.partida.Tabuleiro;
 import java.util.ArrayList;
 import java.util.List;
-
-//Herda as características da Peça
-import br.com.trabalhoso.xadrez.partida.Posicao;
-import br.com.trabalhoso.xadrez.partida.Tabuleiro;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 // Herda as características da Peça
 public class Bispo extends Peca {
@@ -20,8 +13,19 @@ public class Bispo extends Peca {
     }
 
     @Override
-    public List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro, Posicao minhaPosicao) {
+    public List<Posicao> calcularMovimentosPossiveis(Tabuleiro tabuleiro) {
         List<Posicao> movimentos = new ArrayList<>();
+
+        // --- LINHAS CORRIGIDAS ---
+        // 1. Pergunta ao tabuleiro onde esta peça (this) está.
+        Posicao minhaPosicao = tabuleiro.getPosicaoDaPeca(this);
+
+        // 2. Verificação de segurança (impede erro se a peça não for encontrada)
+        if (minhaPosicao == null) {
+            return movimentos;
+        }
+        // --- FIM DA CORREÇÃO ---
+
         int linha = minhaPosicao.getLinha();
         int coluna = minhaPosicao.getColuna();
 
